@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import './index.css';
+import Toggle from "./Toggle";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Toggle />
   </React.StrictMode>,
   document.getElementById("root")
 );
