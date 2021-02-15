@@ -29,9 +29,8 @@ const Toggle = (props) => {
         height: 50px;
         border-radius: 40px;
         width: 90px;
-        background-color: gainsboro;
         transition: background-color 0.3s;
-        ${on && "background-color: rgb(52, 199, 89);"}
+        background-color: ${on ? "rgb(52, 199, 89)" : "gainsboro"};
       `}
     >
       <motion.span
