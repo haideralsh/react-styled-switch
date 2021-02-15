@@ -30,7 +30,7 @@ const Toggle = (props) => {
         border-radius: 40px;
         width: 90px;
         background-color: gainsboro;
-        transition: background-color 0.25s;
+        transition: background-color 0.3s;
         ${on && "background-color: rgb(52, 199, 89);"}
       `}
     >
@@ -44,7 +44,7 @@ const Toggle = (props) => {
           height: 46px;
           width: 46px;
           border-radius: 50%;
-          transition: box-shadow 0.25s;
+          transition: box-shadow 0.3s;
           ${on && "box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);"}
         `}
       />
