@@ -1,5 +1,9 @@
 # React Toggle
 
+![Demo](demo.gif)
+
+> Note: The rough animation in the demo is due to the GIF running at 20 FPS.
+
 A switch toggle in React using Emotion CSS, and Framer motion.
 
 I want to evolve this to offer different toggle styles and allowing importing
