@@ -11,5 +11,5 @@ only the style you want.
 
 This project is scaffolded using create-react-app, so it is not possible to
 import it as a component in your React project. Eventually, once I decide on the
-name and API, I will publish to as a standalone package that can be imported
+name and API, I will publish it as a standalone package that can be imported
 from NPM.
