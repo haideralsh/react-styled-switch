@@ -1,9 +1,13 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { css } from "@emotion/css";
 
-const Toggle = (props) => {
-  const [on, setOn] = useState(Boolean(props.on));
+type ToggleProps = {
+  on?: boolean 
+}
+
+const Toggle: React.FC<ToggleProps> = (props) => {
+  const [on, setOn] = useState(props.on);
   const [animateX, setAnimateX] = useState(0);
 
   const toggle = () => {
@@ -11,7 +15,7 @@ const Toggle = (props) => {
   };
 
   useEffect(() => {
-    setOn(Boolean(props.on));
+    setOn(props.on);
   }, [props.on]);
 
   useEffect(() => {
@@ -50,5 +54,7 @@ const Toggle = (props) => {
     </motion.span>
   );
 };
+
+Toggle.defaultProps = { on: false }
 
 export default Toggle;
