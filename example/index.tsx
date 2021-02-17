@@ -1,10 +1,10 @@
 import 'react-app-polyfill/ie11'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import Toggle from '../.'
+import BaseToggle from '../.'
 
 const App = () => {
-  return <Toggle />
+  return <BaseToggle />
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))

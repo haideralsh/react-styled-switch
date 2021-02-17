@@ -1,60 +1,52 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { css } from "@emotion/css";
+import React, { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
+import { css } from '@emotion/css'
 
-type ToggleProps = {
-  on?: boolean 
+export type ToggleProps = {
+  value?: boolean
+  activeColor?: React.CSSProperties['color']
+  trackColor?: React.CSSProperties['color']
+  onChange?: Function // @todo be more specific for the type of function
+  textDirection?: 'ltr' | 'rtl'
+  disabled?: boolean
 }
 
-const Toggle: React.FC<ToggleProps> = (props) => {
-  const [on, setOn] = useState(props.on);
-  const [animateX, setAnimateX] = useState(0);
+export type BaseToggleProps = {
+  trackCss: string
+  toggleCss: string
+}
+
+const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = props => {
+  const [on, setOn] = useState(props.value)
+  const [animateX, setAnimateX] = useState(0)
 
   const toggle = () => {
-    setOn(!on);
-  };
+    setOn(!on)
+  }
 
   useEffect(() => {
-    setOn(props.on);
-  }, [props.on]);
+    setOn(props.value)
+  }, [props.value])
 
   useEffect(() => {
-    setAnimateX(on ? 40 : 0);
-  }, [on]);
+    setAnimateX(on ? 40 : 0)
+  }, [on])
 
   return (
-    <motion.span
-      onClick={toggle}
-      className={css`
-        box-sizing: border-box;
-        display: inline-flex;
-        align-items: center;
-        padding: 2px;
-        height: 50px;
-        border-radius: 40px;
-        width: 90px;
-        transition: background-color 0.3s;
-        background-color: ${on ? "rgb(52, 199, 89)" : "gainsboro"};
-      `}
-    >
+    <motion.span onClick={toggle} className={css(props.trackCss)}>
       <motion.span
         animate={{ x: animateX }}
-        transition={{ duration: 0.3, type: "spring" }}
-        className={css`
-          box-sizing: border-box;
-          background-color: #ffffff;
-          display: flex;
-          height: 46px;
-          width: 46px;
-          border-radius: 50%;
-          transition: box-shadow 0.3s;
-          ${on && "box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);"}
-        `}
+        transition={{ duration: 0.3, type: 'spring' }}
+        className={css(props.toggleCss)}
       />
     </motion.span>
-  );
-};
+  )
+}
 
-Toggle.defaultProps = { on: false }
+BaseToggle.defaultProps = {
+  value: false,
+  textDirection: 'ltr',
+  disabled: false,
+}
 
-export default Toggle;
+export default BaseToggle
