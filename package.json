@@ -34,6 +34,7 @@
   "prettier": {
     "printWidth": 80,
     "semi": false,
+    "proseWrap": "always",
     "singleQuote": true,
     "trailingComma": "es5"
   },
