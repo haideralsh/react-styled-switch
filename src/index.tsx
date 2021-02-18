@@ -6,7 +6,7 @@ export type ToggleProps = {
   value?: boolean
   activeColor?: React.CSSProperties['color']
   trackColor?: React.CSSProperties['color']
-  onChange?: Function // @todo be more specific for the type of function
+  onChange?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void
   textDirection?: 'ltr' | 'rtl'
   disabled?: boolean
 }
