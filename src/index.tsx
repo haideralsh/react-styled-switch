@@ -14,30 +14,36 @@ export type ToggleProps = {
 export type BaseToggleProps = {
   trackCss: string
   toggleCss: string
+  animationDuration: number
+  animationType: 'spring' // Offer more types
+  beginAnimationX: number
+  endAnimationX: number
 }
 
-const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = props => {
-  const [on, setOn] = useState(props.value)
-  const [animateX, setAnimateX] = useState(0)
-
-  const toggle = () => {
-    setOn(!on)
-  }
+const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
+  value = false,
+  dir = 'ltr',
+  disabled = false,
+  onChange,
+  trackCss,
+  toggleCss,
+  animationDuration,
+  animationType,
+  beginAnimationX,
+  endAnimationX,
+}) => {
+  const [animateX, setAnimateX] = useState(beginAnimationX)
 
   useEffect(() => {
-    setOn(props.value)
-  }, [props.value])
-
-  useEffect(() => {
-    setAnimateX(on ? 40 : 0)
-  }, [on])
+    setAnimateX(value ? endAnimationX : beginAnimationX)
+  }, [value, endAnimationX, beginAnimationX])
 
   return (
-    <motion.span onClick={toggle} className={css(props.trackCss)}>
+    <motion.span onClick={onChange} className={css(trackCss)}>
       <motion.span
         animate={{ x: animateX }}
-        transition={{ duration: 0.3, type: 'spring' }}
-        className={css(props.toggleCss)}
+        transition={{ duration: animationDuration, type: animationType }}
+        className={css(toggleCss)}
       />
     </motion.span>
   )
