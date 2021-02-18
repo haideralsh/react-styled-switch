@@ -43,10 +43,4 @@ const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = props => {
   )
 }
 
-BaseToggle.defaultProps = {
-  value: false,
-  textDirection: 'ltr',
-  disabled: false,
-}
-
 export default BaseToggle
