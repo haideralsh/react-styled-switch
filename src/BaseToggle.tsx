@@ -36,8 +36,6 @@ const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
   const [animateX, setAnimateX] = useState(beginAnimationX)
   const disabled = !Boolean(onChange)
 
-  console.log(value)
-
   useEffect(() => {
     setAnimateX(value ? endAnimationX : beginAnimationX)
   }, [value, endAnimationX, beginAnimationX])
