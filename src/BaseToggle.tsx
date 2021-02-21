@@ -10,7 +10,7 @@ export type ToggleProps = {
   textDirection?: 'ltr' | 'rtl'
 }
 
-export type BaseToggleProps = {
+type BaseToggleProps = {
   trackCss: string
   toggleCss: string
   animationDuration: number // Maybe have a default value?
