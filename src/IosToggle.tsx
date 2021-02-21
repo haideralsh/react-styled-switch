@@ -27,15 +27,11 @@ const IosToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
         width: ${switchWidth}px;
         height: ${switchHeight}px;
         align-items: center;
-        
         padding: ${padding}px; 
         border-radius: 40px;
-        transition: background-color ${duration}s;
+        transition: all ${duration}s;
         transition-property: background-color, box-shadow;
-        background-color: ${value ? 'rgb(52, 199, 89)' : 'transparent'};
-        box-shadow: ${
-          value ? 'none' : 'inset 0px 0px 0px 2px rgba(220, 220, 220, 0.5)'
-        };
+        background-color: ${value ? 'rgb(52, 199, 89)' : '#E9E9EA'};
       `}
       toggleCss={`
       box-sizing: border-box;
@@ -45,7 +41,7 @@ const IosToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
       width: ${trackHeight}px;
       border-radius: 50%;
       transition: box-shadow ${duration}s;
-      box-shadow: 0px 0px 2px rgb(0 0 0 / 30%), 0px 2px 4px rgb(0 0 0 / 20%);
+      box-shadow: 0px 2px 4px rgb(0 0 0 / 20%);
     `}
       value={value}
       {...rest}
