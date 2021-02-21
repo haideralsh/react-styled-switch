@@ -1,5 +1,5 @@
 import React from 'react'
-import BaseToggle, { ToggleProps } from './BaseToggle'
+import BaseToggle, { ToggleProps } from '../BaseToggle'
 
 // const trackHeight = 31.0
 // const trackRadius = trackHeight / 2.0
