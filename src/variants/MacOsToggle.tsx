@@ -7,8 +7,18 @@ const switchHeight = 41
 const toggleWidth = 55
 const toggleHeight = 37
 
-const duration = 0.3 // ms
+const duration = 0.3 // seconds
 const padding = 2
+
+// We might need to refactor the "left" | "right" to be "on" | "off" instead
+const labelCss = (side: 'left' | 'right') => `
+padding-${side}: ${(switchWidth - toggleWidth - 2) / 4}px;
+color: #fff;
+font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif, "Apple Color Emoji";
+text-transform: uppercase;
+font-weight: 500;
+user-select: none;
+`
 
 const MacOsToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
   return (
@@ -25,7 +35,7 @@ const MacOsToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
         padding: ${padding}px; 
         transition: all ${duration}s;
         transition-property: background-color, box-shadow;
-        background-color: ${value ? 'rgb(52, 199, 89)' : '#E9E9EA'};
+        background-color: ${value ? 'rgb(52, 199, 89)' : '#D2D2D2'};
       `}
       toggleCss={`
       box-sizing: border-box;
@@ -37,6 +47,8 @@ const MacOsToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
       transition: box-shadow ${duration}s;
       box-shadow: 0px 2px 4px rgb(0 0 0 / 20%);
     `}
+      onLabelCss={labelCss('left')}
+      offLabelCss={labelCss('right')}
       value={value}
       {...rest}
     />
