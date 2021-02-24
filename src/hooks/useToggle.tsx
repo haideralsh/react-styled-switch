@@ -1,7 +1,16 @@
 import { useMemo, useState } from 'react'
 
-const useToggle = (initialValue: boolean = false) => {
-  const [value, setValue] = useState(initialValue)
+type ToggleHandlers = {
+  setOn: () => void
+  setOff: () => void
+  toggle: () => void
+  reset: () => void
+}
+
+const useToggle = (
+  initialValue: boolean = false
+): [boolean, ToggleHandlers] => {
+  const [value, setValue] = useState<boolean>(initialValue)
 
   const handlers = useMemo(
     () => ({
@@ -21,10 +30,7 @@ const useToggle = (initialValue: boolean = false) => {
     [initialValue]
   )
 
-  return {
-    value,
-    ...handlers,
-  }
+  return [value, handlers]
 }
 
 export default useToggle
