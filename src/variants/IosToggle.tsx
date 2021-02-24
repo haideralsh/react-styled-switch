@@ -13,7 +13,7 @@ const switchHeight = 39.0
 const trackWidth = 51.0
 const trackHeight = 35.0
 
-const duration = 0.3 // ms
+const duration = 0.3 // seconds
 const padding = (switchWidth - trackWidth) / 4 // (top, bottom, left, right)
 
 const IosToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
