@@ -13,6 +13,9 @@ export type ToggleProps = {
 type BaseToggleProps = {
   trackCss: string
   toggleCss: string
+  onLabelCss?: string
+  offLabelCss?: string
+
   animationDuration: number // Maybe have a default value?
   animationType?: 'spring' // Offer more types
   beginAnimationX?: number
@@ -28,6 +31,8 @@ const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
   onChange,
   trackCss,
   toggleCss,
+  onLabelCss,
+  offLabelCss,
   animationDuration,
   animationType = 'spring',
   beginAnimationX = 0,
@@ -47,9 +52,24 @@ const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
         css(trackCss),
         css`
           ${disabled && `opacity: ${disabledOpacity};`}
+          position: relative;
         `
       )}
     >
+      <span
+        className={css`
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        `}
+      >
+        <span className={css(onLabelCss)}>On</span>
+        <span className={css(offLabelCss)}>Off</span>
+      </span>
+
       <motion.span
         animate={{ x: animateX }}
         transition={{ duration: animationDuration, type: animationType }}

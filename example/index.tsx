@@ -1,18 +1,12 @@
 import 'react-app-polyfill/ie11'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import IosToggle from '../.'
+import { MacOsToggle, useToggle } from '../.'
 
 const App = () => {
-  const [on, setOn] = React.useState(false)
-  return (
-    <IosToggle
-      onChange={() => {
-        setOn(!on)
-      }}
-      value={on}
-    />
-  )
+  const [value, { toggle }] = useToggle()
+
+  return <MacOsToggle onChange={toggle} value={value} />
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
