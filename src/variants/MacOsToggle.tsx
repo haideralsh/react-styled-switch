@@ -28,7 +28,7 @@ const MacOsToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
       trackCss={`
         box-sizing: border-box;
         display: inline-flex;
-        border-radius: 3px;
+        border-radius: 4px;
         width: ${switchWidth}px;
         height: ${switchHeight}px;
         align-items: center;
@@ -40,7 +40,7 @@ const MacOsToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
       toggleCss={`
       box-sizing: border-box;
       background-color: #ffffff;
-      border-radius: 3px;
+      border-radius: 4px;
       display: flex;
       height: ${toggleHeight}px;
       width: ${toggleWidth}px;
