@@ -50,6 +50,7 @@ const MacOsToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
       onLabelCss={labelCss('left')}
       offLabelCss={labelCss('right')}
       value={value}
+      enableLabels
       {...rest}
     />
   )

@@ -13,6 +13,10 @@ export type ToggleProps = {
 type BaseToggleProps = {
   trackCss: string
   toggleCss: string
+
+  enableLabels?: boolean
+  onLabel?: string
+  offLabel?: string
   onLabelCss?: string
   offLabelCss?: string
 
@@ -37,6 +41,9 @@ const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
   animationType = 'spring',
   beginAnimationX = 0,
   endAnimationX,
+  enableLabels = false,
+  onLabel = 'On',
+  offLabel = 'Off',
 }) => {
   const [animateX, setAnimateX] = useState(beginAnimationX)
   const disabled = !Boolean(onChange)
@@ -56,20 +63,22 @@ const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
         `
       )}
     >
-      <span
-        className={css`
-          position: absolute;
-          height: 100%;
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        `}
-      >
-        <span className={css(onLabelCss)}>On</span>
-        <span className={css(offLabelCss)}>Off</span>
-      </span>
-
+      {enableLabels && (
+        <span
+          // Move this is CSS to be a prop
+          className={css`
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          `}
+        >
+          <span className={css(onLabelCss)}>{onLabel}</span>
+          <span className={css(offLabelCss)}>{offLabel}</span>
+        </span>
+      )}
       <motion.span
         animate={{ x: animateX }}
         transition={{ duration: animationDuration, type: animationType }}
