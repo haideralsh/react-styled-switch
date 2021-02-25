@@ -1,6 +1,6 @@
 # React Styled Toggle
 
-![Demo](demo.gif) ![Demo](macos.gif)
+![Demo](demo.gif)
 
 I became somewhat obssesed with the different styles of switches on different
 operating systems and how they behave so I decided to create this project to
