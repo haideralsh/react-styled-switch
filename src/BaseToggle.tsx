@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { css, cx } from '@emotion/css'
 
+// @todo: Add SpanHtmlElement props to the ToggleProps
+// This type should be a union of custom toggle specific props and the built-in
+// props of a span (the root element of our toggle)
 export type ToggleProps = {
   value?: boolean
   activeColor?: React.CSSProperties['color']
@@ -37,7 +40,7 @@ const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
   toggleCss,
   onLabelCss,
   offLabelCss,
-  animationDuration,
+  animationDuration = 0.3,
   animationType = 'spring',
   beginAnimationX = 0,
   endAnimationX,
