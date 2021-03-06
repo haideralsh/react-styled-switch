@@ -1,20 +1,12 @@
 import React from 'react'
 import BaseToggle, { ToggleProps } from '../BaseToggle'
 
-// const trackHeight = 31.0
-// const trackRadius = trackHeight / 2.0
-// const trackInnerStart = trackHeight / 2.0
-// const trackInnerEnd = trackWidth - trackInnerStart
-// const trackInnerLength = trackInnerEnd - trackInnerStart
-
-const switchWidth = 59.0
-const switchHeight = 39.0
-
-const trackWidth = 51.0
-const trackHeight = 35.0
-
-const duration = 0.3 // seconds
-const padding = (switchWidth - trackWidth) / 4 // (top, bottom, left, right)
+const switchWidth = 59.0,
+  switchHeight = 39.0,
+  trackWidth = 51.0,
+  trackHeight = 35.0,
+  duration = 0.3, // seconds
+  padding = (switchWidth - trackWidth) / 4 // (4 sides: top, bottom, left, right)
 
 const IosToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
   return (
