@@ -5,14 +5,19 @@ import { IosToggle, MacOsToggle, WindowsPhone, useToggle } from '../.'
 
 const App = () => {
   const [value, { toggle }] = useToggle()
-  const verticalDivider = <div style={{ display: 'inline-flex', width: 20 }} />
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
+    <div
+      style={{
+        display: 'grid',
+        gridAutoFlow: 'column',
+        alignItems: 'center',
+        justifyItems: 'center',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
+      }}
+    >
       <MacOsToggle onChange={toggle} value={value} />
-      {verticalDivider}
       <IosToggle onChange={toggle} value={value} />
-      {verticalDivider}
       <WindowsPhone onChange={toggle} value={value} />
     </div>
   )
