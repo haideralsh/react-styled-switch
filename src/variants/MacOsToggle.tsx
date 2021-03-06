@@ -10,17 +10,40 @@ const toggleHeight = 37
 const duration = 0.3 // seconds
 const padding = 2
 
-// We might need to refactor the "left" | "right" to be "on" | "off" instead
-const labelCss = (side: 'left' | 'right') => `
-padding-${side}: ${(switchWidth - toggleWidth - 2) / 4}px;
-color: #fff;
-font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif, "Apple Color Emoji";
-text-transform: uppercase;
-font-weight: 500;
-user-select: none;
-`
+const stateLabelCss = (
+  toggleState: 'on' | 'off',
+  direction: ToggleProps['textDirection'] = 'ltr'
+) => {
+  const config: Record<
+    typeof direction,
+    Record<typeof toggleState, 'left' | 'right'>
+  > = {
+    ltr: {
+      on: 'left',
+      off: 'right',
+    },
+    rtl: {
+      on: 'right',
+      off: 'left',
+    },
+  }
 
-const MacOsToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
+  const side = config[direction][toggleState]
+  return `
+    padding-${side}: ${(switchWidth - toggleWidth - 2) / 4}px;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif, "Apple Color Emoji";
+    text-transform: uppercase;
+    font-weight: 500;
+    user-select: none;
+  `
+}
+
+const MacOsToggle: React.FC<ToggleProps> = ({
+  value,
+  textDirection,
+  ...rest
+}) => {
   return (
     <BaseToggle
       animationDuration={duration}
@@ -47,8 +70,8 @@ const MacOsToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
         transition: box-shadow ${duration}s;
         box-shadow: 0px 2px 4px rgb(0 0 0 / 20%);
     `}
-      onLabelCss={labelCss('left')}
-      offLabelCss={labelCss('right')}
+      onLabelCss={stateLabelCss('on', textDirection)}
+      offLabelCss={stateLabelCss('off', textDirection)}
       value={value}
       enableLabels
       {...rest}
