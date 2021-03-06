@@ -38,14 +38,14 @@ const MacOsToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
         background-color: ${value ? 'rgb(52, 199, 89)' : '#D2D2D2'};
       `}
       toggleCss={`
-      box-sizing: border-box;
-      background-color: #ffffff;
-      border-radius: 4px;
-      display: flex;
-      height: ${toggleHeight}px;
-      width: ${toggleWidth}px;
-      transition: box-shadow ${duration}s;
-      box-shadow: 0px 2px 4px rgb(0 0 0 / 20%);
+        box-sizing: border-box;
+        background-color: #ffffff;
+        border-radius: 4px;
+        display: flex;
+        height: ${toggleHeight}px;
+        width: ${toggleWidth}px;
+        transition: box-shadow ${duration}s;
+        box-shadow: 0px 2px 4px rgb(0 0 0 / 20%);
     `}
       onLabelCss={labelCss('left')}
       offLabelCss={labelCss('right')}
