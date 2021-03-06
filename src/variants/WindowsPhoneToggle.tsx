@@ -1,18 +1,15 @@
 import React from 'react'
 import BaseToggle, { ToggleProps } from '../BaseToggle'
 
-const switchWidth = 86
-const switchHeight = 33
+const switchWidth = 86,
+  switchHeight = 33,
+  toggleWidth = 20,
+  toggleHeight = 37,
+  duration = 0.3, // seconds
+  padding = 0,
+  borderGap = 2
 
-const toggleWidth = 20
-const toggleHeight = 37
-
-const duration = 0.3 // seconds
-const padding = 0
-
-const borderGap = 2
-
-const IosToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
+const WindowsPhoneToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
   return (
     <BaseToggle
       animationDuration={duration}
@@ -48,4 +45,4 @@ const IosToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
   )
 }
 
-export default IosToggle
+export default WindowsPhoneToggle
