@@ -1,7 +1,7 @@
 import 'react-app-polyfill/ie11'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { IosToggle, MacOsToggle, WindowsPhone, useToggle } from '../.'
+import { IosToggle, MacOsToggle, WindowsPhoneToggle, useToggle } from '../.'
 
 const App = () => {
   const [value, { toggle }] = useToggle()
@@ -18,7 +18,7 @@ const App = () => {
     >
       <MacOsToggle onChange={toggle} value={value} />
       <IosToggle onChange={toggle} value={value} />
-      <WindowsPhone onChange={toggle} value={value} />
+      <WindowsPhoneToggle onChange={toggle} value={value} />
     </div>
   )
 }
