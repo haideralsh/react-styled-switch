@@ -80,6 +80,7 @@ const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
         </span>
       )}
       <motion.span
+        initial={{ x: animateX }}
         animate={{ x: animateX }}
         transition={{ duration: animationDuration, type: animationType }}
         className={css(toggleCss)}
