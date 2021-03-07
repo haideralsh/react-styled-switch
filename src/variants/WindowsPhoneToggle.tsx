@@ -36,7 +36,6 @@ const WindowsPhoneToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
       border: ${borderGap}px solid #000;
       border-radius: 0;
       box-shadow: 0px 0px 0px ${borderGap}px #fff;
-      transition: box-shadow ${duration}s;
       margin-left: -${borderGap}px;
     `}
       value={value}
