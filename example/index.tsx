@@ -1,10 +1,20 @@
 import 'react-app-polyfill/ie11'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { IosToggle, MacOsToggle, WindowsPhoneToggle, useToggle } from '../.'
+import {
+  IosToggle,
+  MacOsToggle,
+  WindowsPhoneToggle,
+  useToggle,
+  MaterialToggle,
+} from '../.'
 
 const App = () => {
   const [value, { toggle }] = useToggle()
+  const props = {
+    onChange: toggle,
+    value,
+  }
 
   return (
     <div
@@ -13,12 +23,14 @@ const App = () => {
         gridAutoFlow: 'column',
         alignItems: 'center',
         justifyItems: 'center',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
+        gridAutoColumns: 'min-content',
+        columnGap: 20,
       }}
     >
-      <MacOsToggle onChange={toggle} value={value} />
-      <IosToggle onChange={toggle} value={value} />
-      <WindowsPhoneToggle onChange={toggle} value={value} />
+      <MacOsToggle {...props} />
+      <IosToggle {...props} />
+      <MaterialToggle {...props} />
+      <WindowsPhoneToggle {...props} />
     </div>
   )
 }
