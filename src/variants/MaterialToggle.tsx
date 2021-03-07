@@ -9,7 +9,6 @@ const theme = {
     track: {
       width: 66,
       height: 28,
-      padding: 0,
       borderRadius: 20,
     },
     toggle: {
@@ -52,7 +51,7 @@ const MaterialToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
 
         width: ${dimentions.track.width}px;
         height: ${dimentions.track.height}px;
-        padding: ${dimentions.track.padding}px; 
+        margin: 0 ${dimentions.toggle.width / 4}px; 
         border-radius: ${dimentions.track.borderRadius}px;
         background-color: ${
           value ? palette.track.active : palette.track.inActive
