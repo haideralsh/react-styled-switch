@@ -2,16 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { css, cx } from '@emotion/css'
 
-// @todo: Add SpanHtmlElement props to the ToggleProps
-// This type should be a union of custom toggle specific props and the built-in
-// props of a span (the root element of our toggle)
 export type ToggleProps = {
   value?: boolean
   activeColor?: React.CSSProperties['color']
   trackColor?: React.CSSProperties['color']
   onChange?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void
   textDirection?: 'ltr' | 'rtl'
-}
+} & HTMLSpanElement
 
 type BaseToggleProps = {
   trackCss: string
