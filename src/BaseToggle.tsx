@@ -22,7 +22,7 @@ type BaseToggleProps = {
 
   animationDuration: number // Maybe have a default value?
   animationType?: 'spring' // Offer more types
-  beginAnimationX?: number
+  startAnimationX?: number
   endAnimationX: number
 }
 
@@ -39,18 +39,18 @@ const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
   offLabelCss,
   animationDuration = 0.3,
   animationType = 'spring',
-  beginAnimationX = 0,
+  startAnimationX = 0,
   endAnimationX,
   enableLabels = false,
   onLabel = 'On',
   offLabel = 'Off',
 }) => {
-  const [animateX, setAnimateX] = useState(beginAnimationX)
+  const [animateX, setAnimateX] = useState(startAnimationX)
   const disabled = !Boolean(onChange)
 
   useEffect(() => {
-    setAnimateX(value ? endAnimationX : beginAnimationX)
-  }, [value, endAnimationX, beginAnimationX])
+    setAnimateX(value ? endAnimationX : startAnimationX)
+  }, [value, endAnimationX, startAnimationX])
 
   return (
     <motion.span
