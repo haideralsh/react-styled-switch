@@ -36,6 +36,7 @@ const stateLabelCss = (
     text-transform: uppercase;
     font-weight: 500;
     user-select: none;
+    cursor: default;
   `
 }
 
