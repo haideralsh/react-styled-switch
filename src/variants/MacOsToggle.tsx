@@ -77,7 +77,7 @@ const MacOsToggle: React.FC<ToggleProps> = ({
         height: ${dimensions.track.height}px;
         align-items: center;
         padding: ${dimensions.track.padding}px; 
-        transition: background-color ${dimensions.track.padding}s;
+        transition: background-color ${animation.duration}s;
         background-color: ${
           value ? palette.track.active : palette.track.inActive
         };
