@@ -21,7 +21,7 @@ type BaseToggleProps = {
   onLabelCss?: string
   offLabelCss?: string
 
-  animationDuration: number // Maybe have a default value?
+  animationDuration?: number
   animationType?: 'spring' // Offer more types
   startAnimationX?: number
   endAnimationX: number
