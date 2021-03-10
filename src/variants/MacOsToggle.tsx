@@ -1,36 +1,50 @@
 import React from 'react'
 import BaseToggle, { ToggleProps } from '../BaseToggle'
+import { getCssSide } from '../utils'
 
-const switchWidth = 110
-const switchHeight = 41
+const theme = {
+  animation: {
+    duration: 0.3,
+  },
+  dimensions: {
+    track: {
+      width: 110,
+      height: 41,
+      borderRadius: 4,
+      padding: 2,
+    },
+    thumb: {
+      width: 55,
+      height: 37,
+      borderRadius: 4,
+    },
+  },
+  palette: {
+    track: {
+      active: '#34c759',
+      inActive: '#d2d2d2',
+    },
+    toggle: {
+      active: '#1970e3',
+      inActive: '#ececec',
+      border: '#000000',
+      shadow: '0px 2px 4px rgb(0 0 0 / 20%)',
+    },
+  },
+}
 
-const toggleWidth = 55
-const toggleHeight = 37
-
-const duration = 0.3 // seconds
-const padding = 2
-
-const stateLabelCss = (
+const labelCss = (
   toggleState: 'on' | 'off',
   direction: ToggleProps['textDirection'] = 'ltr'
 ) => {
-  const config: Record<
-    typeof direction,
-    Record<typeof toggleState, 'left' | 'right'>
-  > = {
-    ltr: {
-      on: 'left',
-      off: 'right',
-    },
-    rtl: {
-      on: 'right',
-      off: 'left',
-    },
-  }
+  const {
+    dimensions: { thumb, track },
+  } = theme
 
-  const side = config[direction][toggleState]
+  const side = getCssSide(toggleState, direction)
+
   return `
-    padding-${side}: ${(switchWidth - toggleWidth - 2) / 4}px;
+    padding-${side}: ${(track.width - thumb.width - 2) / 4}px;
     color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif, "Apple Color Emoji";
     text-transform: uppercase;
@@ -45,34 +59,41 @@ const MacOsToggle: React.FC<ToggleProps> = ({
   textDirection,
   ...rest
 }) => {
+  const { dimensions, palette, animation } = theme
+
   return (
     <BaseToggle
-      animationDuration={duration}
-      endAnimationX={switchWidth - toggleWidth - padding * 2}
+      animationDuration={animation.duration}
+      endAnimationX={
+        dimensions.track.width -
+        dimensions.thumb.width -
+        dimensions.track.padding * 2
+      }
       trackCss={`
         box-sizing: border-box;
         display: inline-flex;
         border-radius: 4px;
-        width: ${switchWidth}px;
-        height: ${switchHeight}px;
+        width: ${dimensions.track.width}px;
+        height: ${dimensions.track.height}px;
         align-items: center;
-        padding: ${padding}px; 
-        transition: all ${duration}s;
-        transition-property: background-color, box-shadow;
-        background-color: ${value ? 'rgb(52, 199, 89)' : '#D2D2D2'};
+        padding: ${dimensions.track.padding}px; 
+        transition: background-color ${dimensions.track.padding}s;
+        background-color: ${
+          value ? palette.track.active : palette.track.inActive
+        };
       `}
-      toggleCss={`
+      thumbCss={`
         box-sizing: border-box;
         background-color: #ffffff;
         border-radius: 4px;
         display: flex;
-        height: ${toggleHeight}px;
-        width: ${toggleWidth}px;
-        transition: box-shadow ${duration}s;
+        height: ${dimensions.thumb.height}px;
+        width: ${dimensions.thumb.width}px;
+        transition: box-shadow ${animation.duration}s;
         box-shadow: 0px 2px 4px rgb(0 0 0 / 20%);
     `}
-      onLabelCss={stateLabelCss('on', textDirection)}
-      offLabelCss={stateLabelCss('off', textDirection)}
+      onLabelCss={labelCss('on', textDirection)}
+      offLabelCss={labelCss('off', textDirection)}
       value={value}
       enableLabels
       {...rest}

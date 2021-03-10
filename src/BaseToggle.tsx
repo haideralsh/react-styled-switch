@@ -12,7 +12,7 @@ export type ToggleProps = {
 
 type BaseToggleProps = {
   trackCss: string
-  toggleCss: string
+  thumbCss: string
 
   enableLabels?: boolean
   onLabel?: string
@@ -44,7 +44,7 @@ const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
   // textDirection = 'ltr',
   onChange,
   trackCss,
-  toggleCss,
+  thumbCss,
   labelsWrapperCss = defaultLabelsWrapperCss,
   onLabelCss,
   offLabelCss,
@@ -84,7 +84,7 @@ const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
         initial={{ x: animateX }}
         animate={{ x: animateX }}
         transition={{ duration: animationDuration, type: animationType }}
-        className={css(toggleCss)}
+        className={css(thumbCss)}
       />
     </motion.span>
   )

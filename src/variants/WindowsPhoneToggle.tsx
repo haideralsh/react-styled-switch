@@ -27,7 +27,7 @@ const WindowsPhoneToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
         border-radius: 0;
         background-color: ${value ? '#2AA0E3' : '#fff'};
       `}
-      toggleCss={`
+      thumbCss={`
       box-sizing: border-box;
       background-color: #ffffff;
       display: flex;

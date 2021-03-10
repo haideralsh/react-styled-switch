@@ -25,7 +25,7 @@ const IosToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
         transition-property: background-color, box-shadow;
         background-color: ${value ? 'rgb(52, 199, 89)' : '#E9E9EA'};
       `}
-      toggleCss={`
+      thumbCss={`
       box-sizing: border-box;
       background-color: #ffffff;
       display: flex;
