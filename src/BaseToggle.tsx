@@ -17,6 +17,7 @@ type BaseToggleProps = {
   enableLabels?: boolean
   onLabel?: string
   offLabel?: string
+  labelsWrapperCss?: string
   onLabelCss?: string
   offLabelCss?: string
 
@@ -29,12 +30,22 @@ type BaseToggleProps = {
 // Opacity of a disabled switch, as eye-balled from iOS Simulator on Mac.
 const disabledOpacity = 0.5
 
+const defaultLabelsWrapperCss = `
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
 const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
   value = false,
   // textDirection = 'ltr',
   onChange,
   trackCss,
   toggleCss,
+  labelsWrapperCss = defaultLabelsWrapperCss,
   onLabelCss,
   offLabelCss,
   animationDuration = 0.3,
@@ -64,17 +75,7 @@ const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
       )}
     >
       {enableLabels && (
-        <span
-          // Move this is CSS to be a prop
-          className={css`
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          `}
-        >
+        <span className={css(labelsWrapperCss)}>
           <span className={css(onLabelCss)}>{onLabel}</span>
           <span className={css(offLabelCss)}>{offLabel}</span>
         </span>
