@@ -1,42 +1,67 @@
 import React from 'react'
 import BaseToggle, { ToggleProps } from '../BaseToggle'
 
-const switchWidth = 86,
-  switchHeight = 33,
-  toggleWidth = 20,
-  toggleHeight = 37,
-  duration = 0.3, // seconds
-  padding = 0,
-  borderGap = 2
+const theme = {
+  animation: {
+    duration: 0.3, // seconds
+  },
+  dimensions: {
+    track: {
+      width: 86,
+      height: 33,
+      padding: 0,
+    },
+    thumb: {
+      width: 20,
+      height: 37,
+      borderGap: 2,
+    },
+  },
+  palette: {
+    track: {
+      active: '#2AA0E3',
+      inActive: '#fff',
+      border: '#000000',
+      shadow: '#ffffff',
+    },
+    thumb: {
+      active: '#fff',
+      inActive: '#fff',
+      border: '#000',
+      shadow: '#fff',
+    },
+  },
+}
 
 const WindowsPhoneToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
+  const { animation, dimensions, palette } = theme
+
   return (
     <BaseToggle
-      animationDuration={duration}
-      endAnimationX={switchWidth - toggleWidth}
+      animationDuration={animation.duration}
+      endAnimationX={dimensions.track.width - dimensions.thumb.width}
       trackCss={`
         box-sizing: border-box;
         display: inline-flex;
         align-items: center;
-
-        width: ${switchWidth}px;
-        height: ${switchHeight}px;
-        padding: ${padding}px; 
-        box-shadow: inset 0 0 0 2px #ffffff;
-        border: 2px solid #000000;
-        border-radius: 0;
-        background-color: ${value ? '#2AA0E3' : '#fff'};
+        width: ${dimensions.track.width}px;
+        height: ${dimensions.track.height}px;
+        padding: ${dimensions.track.padding}px; 
+        box-shadow: inset 0 0 0 2px ${palette.track.shadow};
+        border: 2px solid ${palette.track.border};
+        background-color: ${
+          value ? palette.track.active : palette.track.inActive
+        };
       `}
       thumbCss={`
       box-sizing: border-box;
       background-color: #ffffff;
       display: flex;
-      height: ${toggleHeight}px;
-      width: ${toggleWidth}px;
-      border: ${borderGap}px solid #000;
-      border-radius: 0;
-      box-shadow: 0px 0px 0px ${borderGap}px #fff;
-      margin-left: -${borderGap}px;
+      width: ${dimensions.thumb.width}px;
+      height: ${dimensions.thumb.height}px;
+      border: ${dimensions.thumb.borderGap}px solid #000;
+      box-shadow: 0px 0px 0px ${dimensions.thumb.borderGap}px #fff;
+      margin-left: -${dimensions.thumb.borderGap}px;
     `}
       value={value}
       {...rest}
