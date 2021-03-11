@@ -28,6 +28,8 @@ const theme = {
       active: '#1970e3',
       inActive: '#ececec',
       border: '#000000',
+      shadow1: 'rgba(0,0,0,0.12)',
+      shadow2: 'rgba(0,0,0,0.24)',
     },
   },
 }
@@ -48,7 +50,6 @@ const MaterialToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
         box-sizing: border-box;
         display: inline-flex;
         align-items: center;
-
         width: ${dimensions.track.width}px;
         height: ${dimensions.track.height}px;
         margin: 0 ${dimensions.thumb.width / 4}px; 
@@ -66,7 +67,9 @@ const MaterialToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
         height: ${dimensions.thumb.height}px;
         width: ${dimensions.thumb.width}px;
         border-radius: ${dimensions.thumb.borderRadius};
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        box-shadow: 0 1px 3px ${palette.thumb.shadow1}, 0 1px 2px ${
+        palette.thumb.shadow2
+      };
     `}
       value={value}
       {...rest}
