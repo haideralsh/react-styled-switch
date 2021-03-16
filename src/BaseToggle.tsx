@@ -8,11 +8,11 @@ export type ToggleProps = {
   trackColor?: React.CSSProperties['color']
   onChange?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void
   textDirection?: 'ltr' | 'rtl'
-} & HTMLSpanElement
+}
 
 type BaseToggleProps = {
-  trackCss: string
-  thumbCss: string
+  trackCss?: string
+  thumbCss?: string
 
   enableLabels?: boolean
   onLabel?: string
@@ -24,7 +24,7 @@ type BaseToggleProps = {
   animationDuration?: number
   animationType?: 'spring' // Offer more types
   startAnimationX?: number
-  endAnimationX: number
+  endAnimationX?: number
 }
 
 // Opacity of a disabled switch, as eye-balled from iOS Simulator on Mac.
@@ -51,7 +51,7 @@ const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
   animationDuration = 0.3,
   animationType = 'spring',
   startAnimationX = 0,
-  endAnimationX,
+  endAnimationX = 0,
   enableLabels = false,
   onLabel = 'On',
   offLabel = 'Off',
