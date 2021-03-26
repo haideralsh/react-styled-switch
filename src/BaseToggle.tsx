@@ -15,15 +15,24 @@ type BaseToggleProps = {
   trackCss?: string
   thumbCss?: string
 
+  trackClassName?: string
+  thumbClassName?: string
+
   enableLabels?: boolean
-  onLabel?: string
-  offLabel?: string
+  onLabelText?: string
+  offLabelText?: string
+
   labelsWrapperCss?: string
+  labelsWrapperClassName?: string
+
   onLabelCss?: string
   offLabelCss?: string
+  onLabelClassName?: string
+  offLabelClassName?: string
 
   animationDuration?: number
-  animationType?: 'spring' // Offer more types
+  animationType?: 'spring' // @todo: Offer more types
+
   startAnimationX?: number
   endAnimationX?: number
 }
@@ -44,18 +53,32 @@ const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
   on = false,
   // textDirection = 'ltr',
   onChange,
+
   trackCss,
   thumbCss,
+
+  trackClassName,
+  thumbClassName,
+
   labelsWrapperCss = defaultLabelsWrapperCss,
+  labelsWrapperClassName,
+
   onLabelCss,
   offLabelCss,
+  onLabelClassName,
+  offLabelClassName,
+
   animationDuration = 0.3,
   animationType = 'spring',
+
   startAnimationX = 0,
   endAnimationX = 0,
+
   enableLabels = false,
-  onLabel = 'On',
-  offLabel = 'Off',
+
+  // @todo: Add i18n
+  onLabelText = 'On',
+  offLabelText = 'Off',
 }) => {
   const [animateX, setAnimateX] = useState(startAnimationX)
   const disabled = !Boolean(onChange)
@@ -68,6 +91,7 @@ const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
     <motion.span
       onClick={onChange}
       className={cx(
+        trackClassName,
         css(trackCss),
         css`
           ${disabled && `opacity: ${disabledOpacity};`}
@@ -76,16 +100,20 @@ const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
       )}
     >
       {enableLabels && (
-        <span className={css(labelsWrapperCss)}>
-          <span className={css(onLabelCss)}>{onLabel}</span>
-          <span className={css(offLabelCss)}>{offLabel}</span>
+        <span className={cx(css(labelsWrapperCss), labelsWrapperClassName)}>
+          <span className={cx(css(onLabelCss), onLabelClassName)}>
+            {onLabelText}
+          </span>
+          <span className={cx(css(offLabelCss), offLabelClassName)}>
+            {offLabelText}
+          </span>
         </span>
       )}
       <motion.span
         initial={{ x: animateX }}
         animate={{ x: animateX }}
         transition={{ duration: animationDuration, type: animationType }}
-        className={css(thumbCss)}
+        className={cx(css(thumbCss), thumbClassName)}
       />
     </motion.span>
   )
