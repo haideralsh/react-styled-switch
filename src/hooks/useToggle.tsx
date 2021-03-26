@@ -8,29 +8,29 @@ type ToggleHandlers = {
 }
 
 const useToggle = (
-  initialValue: boolean = false
+  initialState: boolean = false
 ): [boolean, ToggleHandlers] => {
-  const [value, setValue] = useState<boolean>(initialValue)
+  const [state, setState] = useState<boolean>(initialState)
 
   const handlers = useMemo(
     () => ({
       setOn: () => {
-        setValue(true)
+        setState(true)
       },
       setOff: () => {
-        setValue(false)
+        setState(false)
       },
       toggle: () => {
-        setValue(value => !value)
+        setState(on => !on)
       },
       reset: () => {
-        setValue(initialValue)
+        setState(initialState)
       },
     }),
-    [initialValue]
+    [initialState]
   )
 
-  return [value, handlers]
+  return [state, handlers]
 }
 
 export default useToggle
