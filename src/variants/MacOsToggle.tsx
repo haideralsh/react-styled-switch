@@ -24,10 +24,10 @@ const theme = {
       active: '#34c759',
       inActive: '#d2d2d2',
     },
-    toggle: {
-      active: '#1970e3',
-      inActive: '#ececec',
+    thumb: {
+      background: '#ffffff',
       border: '#000000',
+      borderRadius: 4,
       shadow: '0px 2px 4px rgb(0 0 0 / 20%)',
     },
   },
@@ -55,9 +55,6 @@ const labelCss = (
 }
 
 const MacOsToggle: React.FC<ToggleProps> = ({ textDirection, on, ...rest }) => {
-  textDirection,
-  ...rest
-}) => {
   const { dimensions, palette, animation } = theme
 
   return (
@@ -71,28 +68,26 @@ const MacOsToggle: React.FC<ToggleProps> = ({ textDirection, on, ...rest }) => {
       trackCss={`
         box-sizing: border-box;
         display: inline-flex;
-        border-radius: 4px;
+        border-radius: ${dimensions.track.borderRadius}px;
         width: ${dimensions.track.width}px;
         height: ${dimensions.track.height}px;
         align-items: center;
         padding: ${dimensions.track.padding}px; 
         transition: background-color ${animation.duration}s;
         background-color: ${on ? palette.track.active : palette.track.inActive};
-        };
       `}
       thumbCss={`
         box-sizing: border-box;
-        background-color: #ffffff;
-        border-radius: 4px;
+        background: ${palette.thumb.background};
+        border-radius: ${palette.thumb.borderRadius}px;
         display: flex;
         height: ${dimensions.thumb.height}px;
         width: ${dimensions.thumb.width}px;
         transition: box-shadow ${animation.duration}s;
-        box-shadow: 0px 2px 4px rgb(0 0 0 / 20%);
-    `}
+        box-shadow: ${palette.thumb.shadow};
+      `}
       onLabelCss={labelCss('on', textDirection)}
       offLabelCss={labelCss('off', textDirection)}
-      value={value}
       enableLabels
       on={on}
       {...rest}
