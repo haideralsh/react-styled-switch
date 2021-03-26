@@ -3,7 +3,7 @@ import BaseToggle, { ToggleProps } from '../BaseToggle'
 
 const theme = {
   animation: {
-    duration: 0.3, // seconds
+    duration: 0.3,
   },
   dimensions: {
     track: {
@@ -34,7 +34,7 @@ const theme = {
   },
 }
 
-const MaterialToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
+const MaterialToggle: React.FC<ToggleProps> = ({ on, ...rest }) => {
   const { animation, dimensions, palette } = theme
 
   return (
@@ -54,16 +54,12 @@ const MaterialToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
         height: ${dimensions.track.height}px;
         margin: 0 ${dimensions.thumb.width / 4}px; 
         border-radius: ${dimensions.track.borderRadius}px;
-        background-color: ${
-          value ? palette.track.active : palette.track.inActive
-        };
+        background-color: ${on ? palette.track.active : palette.track.inActive};
       `}
       thumbCss={`
         display: inline-flex;
         box-sizing: border-box;
-        background-color: ${
-          value ? palette.thumb.active : palette.thumb.inActive
-        };
+        background-color: ${on ? palette.thumb.active : palette.thumb.inActive};
         height: ${dimensions.thumb.height}px;
         width: ${dimensions.thumb.width}px;
         border-radius: ${dimensions.thumb.borderRadius};
@@ -71,7 +67,7 @@ const MaterialToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
         palette.thumb.shadow2
       };
     `}
-      value={value}
+      on={on}
       {...rest}
     />
   )

@@ -27,7 +27,7 @@ describe('BaseToggle', () => {
   it('shows the `onLabel` prop value when passed an `onLabel` prop', () => {
     const onLabel = 'foo'
     const { queryByText } = render(
-      <BaseToggle enableLabels onLabel={onLabel} value={true} />
+      <BaseToggle enableLabels onLabelText={onLabel} on={true} />
     )
 
     expect(queryByText(onLabel)).toBeDefined()
@@ -36,7 +36,7 @@ describe('BaseToggle', () => {
   it('shows the `offLabel` prop value when passed an `offLabel` prop', () => {
     const offLabel = 'foo'
     const { queryByText } = render(
-      <BaseToggle enableLabels offLabel={offLabel} value={false} />
+      <BaseToggle enableLabels offLabelText={offLabel} on={false} />
     )
 
     expect(queryByText(offLabel)).toBeDefined()

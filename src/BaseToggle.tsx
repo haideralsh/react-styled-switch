@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { css, cx } from '@emotion/css'
 
+// @todo: review the relevance of `activeColor` and `trackColor`
 export type ToggleProps = {
-  value?: boolean
+  on?: boolean
   activeColor?: React.CSSProperties['color']
   trackColor?: React.CSSProperties['color']
   onChange?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void
@@ -40,7 +41,7 @@ const defaultLabelsWrapperCss = `
 `
 
 const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
-  value = false,
+  on = false,
   // textDirection = 'ltr',
   onChange,
   trackCss,
@@ -60,8 +61,8 @@ const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
   const disabled = !Boolean(onChange)
 
   useEffect(() => {
-    setAnimateX(value ? endAnimationX : startAnimationX)
-  }, [value, endAnimationX, startAnimationX])
+    setAnimateX(on ? endAnimationX : startAnimationX)
+  }, [on, endAnimationX, startAnimationX])
 
   return (
     <motion.span

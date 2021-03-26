@@ -7,8 +7,8 @@ const switchWidth = 59.0,
   trackHeight = 35.0,
   duration = 0.3, // seconds
   padding = (switchWidth - trackWidth) / 4 // (4 sides: top, bottom, left, right)
+const IosToggle: React.FC<ToggleProps> = ({ on, ...rest }) => {
 
-const IosToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
   return (
     <BaseToggle
       animationDuration={duration}
@@ -35,7 +35,7 @@ const IosToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
       transition: box-shadow ${duration}s;
       box-shadow: 0px 2px 4px rgb(0 0 0 / 20%);
     `}
-      value={value}
+      on={on}
       {...rest}
     />
   )

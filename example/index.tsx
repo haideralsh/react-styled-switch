@@ -10,10 +10,10 @@ import {
 } from '../.'
 
 const App = () => {
-  const [value, { toggle }] = useToggle()
+  const [on, { toggle }] = useToggle()
   const props = {
     onChange: toggle,
-    value,
+    on,
   }
 
   return (

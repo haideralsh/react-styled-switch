@@ -54,8 +54,7 @@ const labelCss = (
   `
 }
 
-const MacOsToggle: React.FC<ToggleProps> = ({
-  value,
+const MacOsToggle: React.FC<ToggleProps> = ({ textDirection, on, ...rest }) => {
   textDirection,
   ...rest
 }) => {
@@ -78,8 +77,7 @@ const MacOsToggle: React.FC<ToggleProps> = ({
         align-items: center;
         padding: ${dimensions.track.padding}px; 
         transition: background-color ${animation.duration}s;
-        background-color: ${
-          value ? palette.track.active : palette.track.inActive
+        background-color: ${on ? palette.track.active : palette.track.inActive};
         };
       `}
       thumbCss={`
@@ -96,6 +94,7 @@ const MacOsToggle: React.FC<ToggleProps> = ({
       offLabelCss={labelCss('off', textDirection)}
       value={value}
       enableLabels
+      on={on}
       {...rest}
     />
   )

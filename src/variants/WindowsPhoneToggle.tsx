@@ -33,7 +33,7 @@ const theme = {
   },
 }
 
-const WindowsPhoneToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
+const WindowsPhoneToggle: React.FC<ToggleProps> = ({ on, ...rest }) => {
   const { animation, dimensions, palette } = theme
 
   return (
@@ -49,9 +49,7 @@ const WindowsPhoneToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
         padding: ${dimensions.track.padding}px; 
         box-shadow: inset 0 0 0 2px ${palette.track.shadow};
         border: 2px solid ${palette.track.border};
-        background-color: ${
-          value ? palette.track.active : palette.track.inActive
-        };
+        background-color: ${on ? palette.track.active : palette.track.inActive};
       `}
       thumbCss={`
       box-sizing: border-box;
@@ -63,7 +61,7 @@ const WindowsPhoneToggle: React.FC<ToggleProps> = ({ value, ...rest }) => {
       box-shadow: 0px 0px 0px ${dimensions.thumb.borderGap}px #fff;
       margin-left: -${dimensions.thumb.borderGap}px;
     `}
-      value={value}
+      on={on}
       {...rest}
     />
   )
