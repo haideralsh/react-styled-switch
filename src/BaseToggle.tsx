@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { css, cx } from '@emotion/css'
 
+export type ToggleSize = 'small' | 'medium' | 'large'
+
 // @todo: review the relevance of `activeColor` and `trackColor`
 export type ToggleProps = {
   on?: boolean
   activeColor?: React.CSSProperties['color']
   trackColor?: React.CSSProperties['color']
+  size?: ToggleSize
   onChange?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void
   textDirection?: 'ltr' | 'rtl'
 }
