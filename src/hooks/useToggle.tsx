@@ -1,15 +1,15 @@
 import { useMemo, useState } from 'react'
 
-type ToggleHandlers = {
+type SwitchHandlers = {
   setOn: () => void
   setOff: () => void
   toggle: () => void
   reset: () => void
 }
 
-const useToggle = (
+const useSwitch = (
   initialState: boolean = false
-): [boolean, ToggleHandlers] => {
+): [boolean, SwitchHandlers] => {
   const [state, setState] = useState<boolean>(initialState)
 
   const handlers = useMemo(
@@ -33,4 +33,4 @@ const useToggle = (
   return [state, handlers]
 }
 
-export default useToggle
+export default useSwitch

@@ -1,5 +1,5 @@
 import React from 'react'
-import BaseToggle, { ToggleProps } from '../BaseToggle'
+import BaseSwitch, { SwitchProps } from '../BaseSwitch'
 import { getCssSide } from '../utils'
 
 const theme = {
@@ -34,14 +34,14 @@ const theme = {
 }
 
 const labelCss = (
-  toggleState: 'on' | 'off',
-  direction: ToggleProps['textDirection'] = 'ltr'
+  switchState: 'on' | 'off',
+  direction: SwitchProps['textDirection'] = 'ltr'
 ) => {
   const {
     dimensions: { thumb, track },
   } = theme
 
-  const side = getCssSide(toggleState, direction)
+  const side = getCssSide(switchState, direction)
 
   return `
     padding-${side}: ${(track.width - thumb.width - 2) / 4}px;
@@ -54,11 +54,11 @@ const labelCss = (
   `
 }
 
-const MacOsToggle: React.FC<ToggleProps> = ({ textDirection, on, ...rest }) => {
+const MacOsSwitch: React.FC<SwitchProps> = ({ textDirection, on, ...rest }) => {
   const { dimensions, palette, animation } = theme
 
   return (
-    <BaseToggle
+    <BaseSwitch
       animationDuration={animation.duration}
       endAnimationX={
         dimensions.track.width -
@@ -95,4 +95,4 @@ const MacOsToggle: React.FC<ToggleProps> = ({ textDirection, on, ...rest }) => {
   )
 }
 
-export default MacOsToggle
+export default MacOsSwitch

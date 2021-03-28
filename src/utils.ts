@@ -1,12 +1,12 @@
-import { ToggleProps } from './BaseToggle'
+import { SwitchProps } from './BaseSwitch'
 
 export const getCssSide = (
-  toggleState: 'on' | 'off',
-  direction: ToggleProps['textDirection'] = 'ltr'
+  switchState: 'on' | 'off',
+  direction: SwitchProps['textDirection'] = 'ltr'
 ) => {
   const config: Record<
     typeof direction,
-    Record<typeof toggleState, 'left' | 'right'>
+    Record<typeof switchState, 'left' | 'right'>
   > = {
     ltr: {
       on: 'left',
@@ -18,5 +18,5 @@ export const getCssSide = (
     },
   }
 
-  return config[direction][toggleState]
+  return config[direction][switchState]
 }

@@ -1,4 +1,4 @@
-# React Styled Toggle
+# React Styled Switch
 
 <img src="demo.gif" alt="Demo" width="400"/>
 
@@ -8,9 +8,9 @@ recreate them using React.
 
 ### High level vision for this project
 
-A switch toggle in React using Emotion CSS, and Framer motion.
+A switch in React using Emotion CSS, and Framer motion.
 
-I want to evolve this to offer different toggle styles and allowing importing
+I want to evolve this to offer different switch styles and allowing importing
 only the style you want.
 
 Eventually, once I decide on the name and API, I will publish it as a standalone

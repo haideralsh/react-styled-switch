@@ -39,16 +39,16 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "styled-toggle",
+  "name": "react-styled-switch",
   "author": "Haïder Alshamma",
-  "module": "dist/styled-toggle.esm.js",
+  "module": "dist/styled-switch.esm.js",
   "size-limit": [
     {
-      "path": "dist/styled-toggle.cjs.production.min.js",
+      "path": "dist/styled-switch.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/styled-toggle.esm.js",
+      "path": "dist/styled-switch.esm.js",
       "limit": "10 KB"
     }
   ],

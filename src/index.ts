@@ -1,7 +1,7 @@
-export { default as useToggle } from './hooks/useToggle'
-export { default as BaseToggle } from './BaseToggle'
+export { default as useSwitch } from './hooks/useSwitch'
+export { default as BaseSwitch } from './BaseSwitch'
 
-export { default as IosToggle } from './variants/IosToggle'
-export { default as MacOsToggle } from './variants/MacOsToggle'
-export { default as WindowsPhoneToggle } from './variants/WindowsPhoneToggle'
-export { default as MaterialToggle } from './variants/MaterialToggle'
+export { default as IosSwitch } from './variants/IosSwitch'
+export { default as MacOsSwitch } from './variants/MacOsSwitch'
+export { default as WindowsPhoneSwitch } from './variants/WindowsPhoneSwitch'
+export { default as MaterialSwitch } from './variants/MaterialSwitch'

@@ -2,19 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { css, cx } from '@emotion/css'
 
-export type ToggleSize = 'small' | 'medium' | 'large'
+export type SwitchSize = 'small' | 'medium' | 'large'
 
 // @todo: review the relevance of `activeColor` and `trackColor`
-export type ToggleProps = {
+export type SwitchProps = {
   on?: boolean
   activeColor?: React.CSSProperties['color']
   trackColor?: React.CSSProperties['color']
-  size?: ToggleSize
+  size?: SwitchSize
   onChange?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void
   textDirection?: 'ltr' | 'rtl'
 }
 
-type BaseToggleProps = {
+type BaseSwitchProps = {
   trackCss?: string
   thumbCss?: string
 
@@ -52,7 +52,7 @@ const defaultLabelsWrapperCss = `
   align-items: center;
 `
 
-const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
+const BaseSwitch: React.FC<BaseSwitchProps & SwitchProps> = ({
   on = false,
   // textDirection = 'ltr',
   onChange,
@@ -122,4 +122,4 @@ const BaseToggle: React.FC<BaseToggleProps & ToggleProps> = ({
   )
 }
 
-export default BaseToggle
+export default BaseSwitch

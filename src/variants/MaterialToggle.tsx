@@ -1,5 +1,5 @@
 import React from 'react'
-import BaseToggle, { ToggleProps } from '../BaseToggle'
+import BaseSwitch, { SwitchProps } from '../BaseSwitch'
 
 const theme = {
   animation: {
@@ -34,11 +34,11 @@ const theme = {
   },
 }
 
-const MaterialToggle: React.FC<ToggleProps> = ({ on, ...rest }) => {
+const MaterialSwitch: React.FC<SwitchProps> = ({ on, ...rest }) => {
   const { animation, dimensions, palette } = theme
 
   return (
-    <BaseToggle
+    <BaseSwitch
       animationDuration={animation.duration}
       startAnimationX={-dimensions.thumb.width / 4}
       endAnimationX={
@@ -73,4 +73,4 @@ const MaterialToggle: React.FC<ToggleProps> = ({ on, ...rest }) => {
   )
 }
 
-export default MaterialToggle
+export default MaterialSwitch
