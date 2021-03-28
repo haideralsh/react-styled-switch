@@ -1,7 +1,7 @@
 import React from 'react'
-import BaseToggle, { ToggleProps, ToggleSize } from '../BaseToggle'
+import BaseSwitch, { SwitchProps, SwitchSize } from '../BaseSwitch'
 
-type IosToggleDimention = {
+type IosSwitchDimention = {
   track: {
     width: number
     height: number
@@ -15,7 +15,7 @@ type IosToggleDimention = {
   }
 }
 
-const dimensions: Record<ToggleSize, IosToggleDimention> = {
+const dimensions: Record<SwitchSize, IosSwitchDimention> = {
   small: {
     track: {
       width: 59 / 1.2,
@@ -76,11 +76,11 @@ const theme = {
   },
 }
 
-const IosToggle: React.FC<ToggleProps> = ({ on, size = 'medium', ...rest }) => {
+const IosSwitch: React.FC<SwitchProps> = ({ on, size = 'medium', ...rest }) => {
   const { animation, dimensions, palette } = theme
 
   return (
-    <BaseToggle
+    <BaseSwitch
       animationDuration={animation.duration}
       endAnimationX={
         dimensions[size].track.width -
@@ -115,4 +115,4 @@ const IosToggle: React.FC<ToggleProps> = ({ on, size = 'medium', ...rest }) => {
   )
 }
 
-export default IosToggle
+export default IosSwitch

@@ -2,24 +2,24 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import BaseToggle from '../src/BaseToggle'
+import BaseSwitch from '../src/BaseSwitch'
 
-describe('BaseToggle', () => {
+describe('BaseSwitch', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div')
-    ReactDOM.render(<BaseToggle />, div)
+    ReactDOM.render(<BaseSwitch />, div)
     ReactDOM.unmountComponentAtNode(div)
   })
 
   it('does not show labels when not passed `enableLabels` prop', () => {
-    const { queryByText } = render(<BaseToggle />)
+    const { queryByText } = render(<BaseSwitch />)
 
     expect(queryByText('on')).toBeNull()
     expect(queryByText('off')).toBeNull()
   })
 
   it('shows labels when passed `enableLabels` prop', () => {
-    const { queryByText } = render(<BaseToggle enableLabels />)
+    const { queryByText } = render(<BaseSwitch enableLabels />)
     expect(queryByText('Off')).toBeInTheDocument()
     expect(queryByText('On')).toBeInTheDocument()
   })
@@ -27,7 +27,7 @@ describe('BaseToggle', () => {
   it('shows the `onLabel` prop value when passed an `onLabel` prop', () => {
     const onLabel = 'foo'
     const { queryByText } = render(
-      <BaseToggle enableLabels onLabelText={onLabel} on={true} />
+      <BaseSwitch enableLabels onLabelText={onLabel} on={true} />
     )
 
     expect(queryByText(onLabel)).toBeDefined()
@@ -36,7 +36,7 @@ describe('BaseToggle', () => {
   it('shows the `offLabel` prop value when passed an `offLabel` prop', () => {
     const offLabel = 'foo'
     const { queryByText } = render(
-      <BaseToggle enableLabels offLabelText={offLabel} on={false} />
+      <BaseSwitch enableLabels offLabelText={offLabel} on={false} />
     )
 
     expect(queryByText(offLabel)).toBeDefined()

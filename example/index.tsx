@@ -2,15 +2,15 @@ import 'react-app-polyfill/ie11'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import {
-  IosToggle,
-  MacOsToggle,
-  WindowsPhoneToggle,
-  useToggle,
-  MaterialToggle,
+  IosSwitch,
+  MacOsSwitch,
+  WindowsPhoneSwitch,
+  useSwitch,
+  MaterialSwitch,
 } from '../.'
 
 const App = () => {
-  const [on, { toggle }] = useToggle()
+  const [on, { toggle }] = useSwitch()
   const props = {
     onChange: toggle,
     on,
@@ -27,10 +27,10 @@ const App = () => {
         columnGap: 20,
       }}
     >
-      <MacOsToggle {...props} />
-      <IosToggle {...props} />
-      <MaterialToggle {...props} />
-      <WindowsPhoneToggle {...props} />
+      <MacOsSwitch {...props} />
+      <IosSwitch {...props} />
+      <MaterialSwitch {...props} />
+      <WindowsPhoneSwitch {...props} />
     </div>
   )
 }

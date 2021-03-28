@@ -1,5 +1,5 @@
 import React from 'react'
-import BaseToggle, { ToggleProps } from '../BaseToggle'
+import BaseSwitch, { SwitchProps } from '../BaseSwitch'
 
 const theme = {
   animation: {
@@ -33,11 +33,11 @@ const theme = {
   },
 }
 
-const WindowsPhoneToggle: React.FC<ToggleProps> = ({ on, ...rest }) => {
+const WindowsPhoneSwitch: React.FC<SwitchProps> = ({ on, ...rest }) => {
   const { animation, dimensions, palette } = theme
 
   return (
-    <BaseToggle
+    <BaseSwitch
       animationDuration={animation.duration}
       endAnimationX={dimensions.track.width - dimensions.thumb.width}
       trackCss={`
@@ -67,4 +67,4 @@ const WindowsPhoneToggle: React.FC<ToggleProps> = ({ on, ...rest }) => {
   )
 }
 
-export default WindowsPhoneToggle
+export default WindowsPhoneSwitch
