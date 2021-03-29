@@ -1,6 +1,6 @@
 # React Styled Switch
 
-<img src="demo.gif" alt="Demo" width="400"/>
+![Demo](demo.gif)
 
 I became somewhat obssesed with the different styles of switches on different
 operating systems and how they behave so I decided to create this project to
