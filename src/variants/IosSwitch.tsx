@@ -18,14 +18,14 @@ type IosSwitchDimention = {
 const dimensions: Record<SwitchSize, IosSwitchDimention> = {
   small: {
     track: {
-      width: 59 / 1.2,
-      height: 39 / 1.2,
-      borderRadius: 40 / 1.2,
-      padding: 2 / 1.2,
+      width: 59 * 0.8,
+      height: 39 * 0.8,
+      borderRadius: 40 * 0.8,
+      padding: 2 * 0.8,
     },
     thumb: {
-      width: 35 / 1.2,
-      height: 35 / 1.2,
+      width: 35 * 0.8,
+      height: 35 * 0.8,
       borderRadius: '50%',
     },
   },
@@ -46,14 +46,14 @@ const dimensions: Record<SwitchSize, IosSwitchDimention> = {
 
   large: {
     track: {
-      width: 59 * 1.4,
-      height: 39 * 1.4,
-      borderRadius: 40 * 1.4,
-      padding: 2 * 1.4,
+      width: 59 * 1.5,
+      height: 39 * 1.5,
+      borderRadius: 40 * 1.5,
+      padding: 2 * 1.5,
     },
     thumb: {
-      width: 35 * 1.4,
-      height: 35 * 1.4,
+      width: 35 * 1.5,
+      height: 35 * 1.5,
       borderRadius: '50%',
     },
   },
