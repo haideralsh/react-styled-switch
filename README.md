@@ -1,5 +1,3 @@
-# React Styled Switch
-
 ![Demo](demo.gif)
 
 I became somewhat obssesed with the different styles of switches on different
