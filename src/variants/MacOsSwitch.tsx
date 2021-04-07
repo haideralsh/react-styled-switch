@@ -1,12 +1,43 @@
 import React from 'react'
-import BaseSwitch, { SwitchProps } from '../BaseSwitch'
+import BaseSwitch, { SwitchProps, SwitchSize } from '../BaseSwitch'
 import { getCssSide } from '../utils'
 
-const theme = {
-  animation: {
-    duration: 0.3,
+type MacOsSwitchDimention = {
+  track: {
+    width: number
+    height: number
+    borderRadius: number
+    padding: number
+  }
+  thumb: {
+    width: number
+    height: number
+    borderRadius: number
+  }
+  label: {
+    fontSize: number
+  }
+}
+
+const dimensions: Record<SwitchSize, MacOsSwitchDimention> = {
+  small: {
+    track: {
+      width: 110 * 0.8,
+      height: 41 * 0.8,
+      borderRadius: 4 * 0.8,
+      padding: 2 * 0.8,
+    },
+    thumb: {
+      width: 55 * 0.8,
+      height: 37 * 0.8,
+      borderRadius: 4 * 0.8,
+    },
+    label: {
+      fontSize: 14,
+    },
   },
-  dimensions: {
+
+  medium: {
     track: {
       width: 110,
       height: 41,
@@ -18,6 +49,33 @@ const theme = {
       height: 37,
       borderRadius: 4,
     },
+    label: {
+      fontSize: 16,
+    },
+  },
+
+  large: {
+    track: {
+      width: 110 * 1.5,
+      height: 41 * 1.5,
+      borderRadius: 4 * 1.5,
+      padding: 2 * 1.5,
+    },
+    thumb: {
+      width: 55 * 1.5,
+      height: 37 * 1.5,
+      borderRadius: 4 * 1.5,
+    },
+    label: {
+      fontSize: 24,
+    },
+  },
+}
+
+const theme = {
+  dimensions,
+  animation: {
+    duration: 0.3,
   },
   palette: {
     track: {
@@ -35,44 +93,52 @@ const theme = {
 
 const labelCss = (
   switchState: 'on' | 'off',
-  direction: SwitchProps['textDirection'] = 'ltr'
+  direction: SwitchProps['textDirection'] = 'ltr',
+  size: SwitchSize
 ) => {
-  const {
-    dimensions: { thumb, track },
-  } = theme
+  const { dimensions } = theme
 
   const side = getCssSide(switchState, direction)
 
   return `
-    padding-${side}: ${(track.width - thumb.width - 2) / 4}px;
+    padding-${side}: ${(dimensions[size].track.width -
+    dimensions[size].thumb.width -
+    2) /
+    4}px;
     color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif, "Apple Color Emoji";
-    text-transform: uppercase;
     font-weight: 500;
+    font-size: ${dimensions[size].label.fontSize}px;
+    text-transform: uppercase;
     user-select: none;
     cursor: default;
   `
 }
 
-const MacOsSwitch: React.FC<SwitchProps> = ({ textDirection, on, ...rest }) => {
+const MacOsSwitch: React.FC<SwitchProps> = ({
+  textDirection,
+  on,
+  size = 'medium',
+  ...rest
+}) => {
   const { dimensions, palette, animation } = theme
 
   return (
     <BaseSwitch
       animationDuration={animation.duration}
       endAnimationX={
-        dimensions.track.width -
-        dimensions.thumb.width -
-        dimensions.track.padding * 2
+        dimensions[size].track.width -
+        dimensions[size].thumb.width -
+        dimensions[size].track.padding * 2
       }
       trackCss={`
         box-sizing: border-box;
         display: inline-flex;
-        border-radius: ${dimensions.track.borderRadius}px;
-        width: ${dimensions.track.width}px;
-        height: ${dimensions.track.height}px;
+        border-radius: ${dimensions[size].track.borderRadius}px;
+        width: ${dimensions[size].track.width}px;
+        height: ${dimensions[size].track.height}px;
         align-items: center;
-        padding: ${dimensions.track.padding}px; 
+        padding: ${dimensions[size].track.padding}px; 
         transition: background-color ${animation.duration}s;
         background-color: ${on ? palette.track.active : palette.track.inActive};
       `}
@@ -81,13 +147,13 @@ const MacOsSwitch: React.FC<SwitchProps> = ({ textDirection, on, ...rest }) => {
         background: ${palette.thumb.background};
         border-radius: ${palette.thumb.borderRadius}px;
         display: flex;
-        height: ${dimensions.thumb.height}px;
-        width: ${dimensions.thumb.width}px;
+        height: ${dimensions[size].thumb.height}px;
+        width: ${dimensions[size].thumb.width}px;
         transition: box-shadow ${animation.duration}s;
         box-shadow: ${palette.thumb.shadow};
       `}
-      onLabelCss={labelCss('on', textDirection)}
-      offLabelCss={labelCss('off', textDirection)}
+      onLabelCss={labelCss('on', textDirection, size)}
+      offLabelCss={labelCss('off', textDirection, size)}
       enableLabels
       on={on}
       {...rest}
