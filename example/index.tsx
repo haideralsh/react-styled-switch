@@ -13,6 +13,7 @@ const App = () => {
   const props = {
     onChange: toggle,
     on,
+    size: 'small',
   }
 
   return (
