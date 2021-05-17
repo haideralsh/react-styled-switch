@@ -5,8 +5,9 @@ import {
   MaterialSwitch,
   useSwitch,
   WindowsPhoneSwitch,
-} from '../../.'
+} from 'react-styled-switch'
 import GlobalSwitch from './GlobalSwitch'
+import { version } from '../package.json'
 
 export default function Home() {
   const [on, { toggle }] = useSwitch()
@@ -19,7 +20,7 @@ export default function Home() {
     <div className="container max-w-5xl mx-auto p-12">
       <h1 className="text-3xl font-semibold mb-12">
         react-styled-switch
-        <span className="text-gray-300">{/* @todo: Add Version */}</span>
+        <span className="text-gray-300">@{version}</span>
       </h1>
 
       <div className="flex items-center  mb-4 justify-between">
@@ -72,7 +73,7 @@ function SwitchStyle({ name, handleGlobalSwitch, children }) {
       <div className="my-4">
         <h3 className="text-l font-semibold pt-2 text-gray-500">Props</h3>
         <label className="text-gray-500 block my-1">
-          <span class="font-mono font-medium w-16 inline-block">on</span>
+          <span className="font-mono font-medium w-16 inline-block">on</span>
           <select
             className="form-select border-gray-200 rounded mt-1 shadow-sm"
             value={String(on)}
