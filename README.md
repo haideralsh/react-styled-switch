@@ -1,5 +1,7 @@
 ![Demo](demo.gif)
 
+### Demo: https://react-styled-switch.vercel.app
+
 I became somewhat obssesed with the different styles of switches on different
 operating systems and how they behave so I decided to create this project to
 recreate them using React.
