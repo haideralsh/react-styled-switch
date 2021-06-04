@@ -1,7 +1,7 @@
 import React from 'react'
 import BaseSwitch, { SwitchProps, SwitchSize } from '../BaseSwitch'
 
-type MaterialSwitchDimention = {
+type WindowsPhoneSwitchDimention = {
   track: {
     width: number
     height: number
@@ -15,7 +15,7 @@ type MaterialSwitchDimention = {
   }
 }
 
-const dimensions: Record<SwitchSize, MaterialSwitchDimention> = {
+const dimensions: Record<SwitchSize, WindowsPhoneSwitchDimention> = {
   small: {
     track: {
       width: 86 * 0.8,
