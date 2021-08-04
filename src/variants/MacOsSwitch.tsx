@@ -1,5 +1,6 @@
 import React from 'react'
 import BaseSwitch, { SwitchProps, SwitchSize } from '../BaseSwitch'
+import { lg, sm } from '../constant'
 import { getCssSide } from '../utils'
 
 type MacOsSwitchDimention = {
@@ -22,15 +23,15 @@ type MacOsSwitchDimention = {
 const dimensions: Record<SwitchSize, MacOsSwitchDimention> = {
   small: {
     track: {
-      width: 110 * 0.8,
-      height: 41 * 0.8,
-      borderRadius: 4 * 0.8,
-      padding: 2 * 0.8,
+      width: 110 * sm,
+      height: 41 * sm,
+      borderRadius: 4 * sm,
+      padding: 2 * sm,
     },
     thumb: {
-      width: 55 * 0.8,
-      height: 37 * 0.8,
-      borderRadius: 4 * 0.8,
+      width: 55 * sm,
+      height: 37 * sm,
+      borderRadius: 4 * sm,
     },
     label: {
       fontSize: 14,
@@ -56,15 +57,15 @@ const dimensions: Record<SwitchSize, MacOsSwitchDimention> = {
 
   large: {
     track: {
-      width: 110 * 1.5,
-      height: 41 * 1.5,
-      borderRadius: 4 * 1.5,
-      padding: 2 * 1.5,
+      width: 110 * lg,
+      height: 41 * lg,
+      borderRadius: 4 * lg,
+      padding: 2 * lg,
     },
     thumb: {
-      width: 55 * 1.5,
-      height: 37 * 1.5,
-      borderRadius: 4 * 1.5,
+      width: 55 * lg,
+      height: 37 * lg,
+      borderRadius: 4 * lg,
     },
     label: {
       fontSize: 24,

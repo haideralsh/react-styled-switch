@@ -1,5 +1,6 @@
 import React from 'react'
 import BaseSwitch, { SwitchProps, SwitchSize } from '../BaseSwitch'
+import { lg, sm } from '../constant'
 
 type WindowsPhoneSwitchDimention = {
   track: {
@@ -18,14 +19,14 @@ type WindowsPhoneSwitchDimention = {
 const dimensions: Record<SwitchSize, WindowsPhoneSwitchDimention> = {
   small: {
     track: {
-      width: 86 * 0.8,
-      height: 33 * 0.8,
+      width: 86 * sm,
+      height: 33 * sm,
       padding: 0,
       borderWidth: 2,
     },
     thumb: {
-      width: 20 * 0.8,
-      height: 37 * 0.8,
+      width: 20 * sm,
+      height: 37 * sm,
       borderGap: 2,
     },
   },
@@ -46,14 +47,14 @@ const dimensions: Record<SwitchSize, WindowsPhoneSwitchDimention> = {
 
   large: {
     track: {
-      width: 86 * 1.5,
-      height: 33 * 1.5,
+      width: 86 * lg,
+      height: 33 * lg,
       padding: 0,
       borderWidth: 3,
     },
     thumb: {
-      width: 20 * 1.5,
-      height: 37 * 1.5,
+      width: 20 * lg,
+      height: 37 * lg,
       borderGap: 3,
     },
   },

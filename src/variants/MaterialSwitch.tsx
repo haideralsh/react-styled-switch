@@ -1,5 +1,6 @@
 import React from 'react'
 import BaseSwitch, { SwitchProps, SwitchSize } from '../BaseSwitch'
+import { lg, sm } from '../constant'
 
 type MaterialSwitchDimention = {
   track: {
@@ -17,13 +18,13 @@ type MaterialSwitchDimention = {
 const dimensions: Record<SwitchSize, MaterialSwitchDimention> = {
   small: {
     track: {
-      width: 66 * 0.8,
-      height: 28 * 0.8,
-      borderRadius: 20 * 0.8,
+      width: 66 * sm,
+      height: 28 * sm,
+      borderRadius: 20 * sm,
     },
     thumb: {
-      width: 40 * 0.8,
-      height: 40 * 0.8,
+      width: 40 * sm,
+      height: 40 * sm,
       borderRadius: '50%',
     },
   },
@@ -43,13 +44,13 @@ const dimensions: Record<SwitchSize, MaterialSwitchDimention> = {
 
   large: {
     track: {
-      width: 66 * 1.5,
-      height: 28 * 1.5,
-      borderRadius: 20 * 1.5,
+      width: 66 * lg,
+      height: 28 * lg,
+      borderRadius: 20 * lg,
     },
     thumb: {
-      width: 40 * 1.5,
-      height: 40 * 1.5,
+      width: 40 * lg,
+      height: 40 * lg,
       borderRadius: '50%',
     },
   },
@@ -86,6 +87,7 @@ const MaterialSwitch: React.FC<SwitchProps> = ({
 
   return (
     <BaseSwitch
+      on={on}
       animationDuration={animation.duration}
       startAnimationX={-dimensions[size].thumb.width / 4}
       endAnimationX={
@@ -114,7 +116,6 @@ const MaterialSwitch: React.FC<SwitchProps> = ({
         palette.thumb.shadow2
       };
     `}
-      on={on}
       {...rest}
     />
   )

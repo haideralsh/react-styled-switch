@@ -1,5 +1,6 @@
 import React from 'react'
 import BaseSwitch, { SwitchProps, SwitchSize } from '../BaseSwitch'
+import { lg, sm } from '../constant'
 
 type IosSwitchDimention = {
   track: {
@@ -18,14 +19,14 @@ type IosSwitchDimention = {
 const dimensions: Record<SwitchSize, IosSwitchDimention> = {
   small: {
     track: {
-      width: 59 * 0.8,
-      height: 39 * 0.8,
-      borderRadius: 40 * 0.8,
-      padding: 2 * 0.8,
+      width: 59 * sm,
+      height: 39 * sm,
+      borderRadius: 40 * sm,
+      padding: 2 * sm,
     },
     thumb: {
-      width: 35 * 0.8,
-      height: 35 * 0.8,
+      width: 35 * sm,
+      height: 35 * sm,
       borderRadius: '50%',
     },
   },
@@ -46,14 +47,14 @@ const dimensions: Record<SwitchSize, IosSwitchDimention> = {
 
   large: {
     track: {
-      width: 59 * 1.5,
-      height: 39 * 1.5,
-      borderRadius: 40 * 1.5,
-      padding: 2 * 1.5,
+      width: 59 * lg,
+      height: 39 * lg,
+      borderRadius: 40 * lg,
+      padding: 2 * lg,
     },
     thumb: {
-      width: 35 * 1.5,
-      height: 35 * 1.5,
+      width: 35 * lg,
+      height: 35 * lg,
       borderRadius: '50%',
     },
   },
