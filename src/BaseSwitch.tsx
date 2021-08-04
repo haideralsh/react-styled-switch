@@ -94,12 +94,13 @@ const BaseSwitch: React.FC<BaseSwitchProps & SwitchProps> = ({
     <motion.span
       onClick={onChange}
       className={cx(
-        trackClassName,
-        css(trackCss),
         css`
-          ${disabled && `opacity: ${disabledOpacity};`}
           position: relative;
-        `
+          cursor: pointer;
+          ${disabled && `opacity: ${disabledOpacity};`}
+        `,
+        trackClassName,
+        css(trackCss)
       )}
     >
       {enableLabels && (
