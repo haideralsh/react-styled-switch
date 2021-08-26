@@ -1,6 +1,6 @@
 import React from 'react'
 import BaseSwitch, { SwitchProps, SwitchSize } from '../BaseSwitch'
-import { lg, sm } from '../constant'
+import { lg, sm } from '../constants'
 
 type IosSwitchDimention = {
   track: {
