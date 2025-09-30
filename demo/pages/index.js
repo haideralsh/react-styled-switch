@@ -7,7 +7,9 @@ import {
   WindowsPhoneSwitch,
 } from 'react-styled-switch'
 import GlobalSwitch from './GlobalSwitch'
-import { version } from '../package.json'
+import packageJson from '../package.json'
+
+const { version } = packageJson
 
 export default function Home() {
   const [on, { toggle }] = useSwitch()
